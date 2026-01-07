@@ -1,6 +1,6 @@
 let movimientos = [];
 let cedears = [];
-let sheetConfig = { id: '' };
+let sheetConfig = { id: '1A-iIa78FZKTKHrQe5s4NuRiSymZewoO9AMuOdf_Nkyk' };
 
 let myChart = null; // Variable para controlar el gráfico
 
