@@ -1,0 +1,154 @@
+:root {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --accent-color: #00d4ff;
+    --success-color: #00ff9d;
+    --danger-color: #ff5555;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 20px;
+    margin: 0;
+}
+
+.container { max-width: 1200px; margin: 0 auto; }
+
+header {
+    display: flex; flex-direction: column; align-items: center;
+    margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 15px;
+}
+
+@media(min-width: 600px) {
+    header { flex-direction: row; justify-content: space-between; }
+}
+
+.main-nav {
+    display: flex; gap: 10px;
+}
+
+.nav-btn {
+    background: transparent; border: 1px solid #444; color: #aaa;
+    padding: 8px 16px; border-radius: 20px; cursor: pointer;
+    font-size: 0.9rem; transition: all 0.3s;
+}
+
+.nav-btn.active {
+    background-color: var(--accent-color); color: #000; font-weight: bold; border-color: var(--accent-color);
+}
+.nav-btn:hover:not(.active) { border-color: var(--accent-color); color: var(--accent-color); }
+
+.view-section { animation: fadeIn 0.3s ease-in-out; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.view-header {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;
+}
+
+.btn-config, .btn-update {
+    background: #333; border: none; color: white; padding: 8px 12px;
+    border-radius: 5px; cursor: pointer; font-size: 0.85rem; margin-left: 5px;
+}
+.btn-config:hover, .btn-update:hover { background: #444; }
+
+/* Tarjetas */
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--accent-color);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.amount { font-size: 1.8rem; font-weight: bold; margin-top: 10px; margin-bottom: 0; }
+.positive { color: var(--success-color); }
+
+/* Layout Principal */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr; /* Móvil: 1 columna */
+    gap: 30px;
+}
+
+@media(min-width: 900px) {
+    .main-content {
+        grid-template-columns: 350px 1fr; /* PC: Formulario fijo a la izq, resto a la derecha */
+    }
+}
+
+/* Columna Derecha (Gráfico + Tabla) */
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Contenedor del Gráfico */
+.chart-box {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.chart-box h2 { margin-top: 0; font-size: 1.2rem; color: #aaa; margin-bottom: 15px; }
+
+/* Formulario */
+.form-panel {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 10px;
+    height: fit-content;
+}
+
+input, select {
+    width: 100%; padding: 12px; margin-bottom: 15px;
+    background: #2c2c2c; border: 1px solid #444; color: white;
+    border-radius: 5px; box-sizing: border-box; font-size: 1rem;
+}
+
+.row { display: flex; gap: 10px; }
+label { display: block; margin-bottom: 5px; font-size: 0.85rem; color: #aaa; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.btn-add {
+    width: 100%; padding: 15px; background-color: var(--accent-color);
+    color: #000; border: none; font-weight: bold; font-size: 1rem;
+    cursor: pointer; border-radius: 5px; margin-top: 10px;
+}
+.btn-add:hover { background-color: #00b8e6; }
+
+.btn-danger {
+    background-color: transparent; border: 1px solid var(--danger-color);
+    color: var(--danger-color); padding: 8px 15px; cursor: pointer; border-radius: 4px;
+}
+.btn-danger:hover { background-color: var(--danger-color); color: white; }
+
+/* Tabla */
+.details {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+}
+.details h2 { margin-top: 0; font-size: 1.2rem; color: #aaa; }
+
+.table-wrapper { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; border-radius: 8px; }
+th, td { padding: 15px; text-align: left; border-bottom: 1px solid #333; }
+th { color: var(--accent-color); font-size: 0.85rem; text-transform: uppercase; }
+tr:hover { background-color: #252525; }
+
+.btn-delete {
+    background: #333; color: #ff5555; border: none; cursor: pointer;
+    padding: 5px 10px; border-radius: 4px; font-weight: bold;
+}
+.btn-delete:hover { background: #ff5555; color: white; }
